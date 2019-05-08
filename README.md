@@ -1,5 +1,5 @@
 # ofxControlPointManager
-![screenshot.png](./screenshot.png)  
+![screenshot.gif](./screenshot.gif)  
   
 ## Usage
 see example.
