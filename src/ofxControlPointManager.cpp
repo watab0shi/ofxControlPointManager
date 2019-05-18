@@ -415,7 +415,11 @@ void ofxControlPointManager::drawInfo() {
     if( cp.isHover() )
     {
       std::string label = "i: " + ofToString( i ) + "\nX: " + ofToString( ( int )cp.x ) + "\nY: " + ofToString( ( int )cp.y );
-      ofDrawBitmapStringHighlight( label, cp.x + 20, cp.y + 20 );
+      ofVec2f labelPos = cp + ofVec2f( 20, 30 );
+      if( cp.x > limitArea.getRight()  - 80 ) labelPos.x -= 90;
+      if( cp.y > limitArea.getBottom() - 70 ) labelPos.y -= 80;
+      
+      ofDrawBitmapStringHighlight( label, labelPos );
     }
     ++i;
   }
