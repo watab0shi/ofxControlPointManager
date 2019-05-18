@@ -15,4 +15,6 @@ public:
   float                  w, h;
   ofxControlPointManager controlPoints;
   std::string            csvFileName;
+  
+  void pointsChanged( std::vector< ofVec2f >& _points );
 };

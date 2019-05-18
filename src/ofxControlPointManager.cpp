@@ -51,6 +51,8 @@ bool ofxControlPoint::isSelected()
 }
 
 
+ofEvent< std::vector< ofVec2f > > ofxControlPointManager::changeEvent;
+
 // ofxControlPointManager
 //--------------------------------------------------------------
 ofxControlPointManager::ofxControlPointManager()
@@ -271,6 +273,8 @@ void ofxControlPointManager::mouseDragged( ofMouseEventArgs& _data )
         }
       }
     }
+    auto points = getPoints();
+    ofNotifyEvent( ofxControlPointManager::changeEvent, points );
     
     lastDragPos = mouse;
   }
@@ -460,6 +464,9 @@ void ofxControlPointManager::loadFromCsv( std::string _fileName )
       }
       ++i;
     }
+    
+    auto points = getPoints();
+    ofNotifyEvent( ofxControlPointManager::changeEvent, points );
   }
   else
   {

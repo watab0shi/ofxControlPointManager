@@ -69,6 +69,8 @@ public:
   void saveToCsv( std::string _fileName );
   void loadFromCsv( std::string _fileName );
   
+  static ofEvent< std::vector< ofVec2f > > changeEvent;
+  
 private:
   float        pointSize;
   ofColor      pointColor;
