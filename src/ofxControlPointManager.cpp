@@ -170,6 +170,9 @@ void ofxControlPointManager::keyPressed( ofKeyEventArgs& _data )
         {
           cp.x = ofClamp( cp.x + moveDirections.at( i ).x, limitArea.getLeft(), limitArea.getRight() );
           cp.y = ofClamp( cp.y + moveDirections.at( i ).y, limitArea.getTop(), limitArea.getBottom() );
+          
+          auto points = getPoints();
+          ofNotifyEvent( ofxControlPointManager::changeEvent, points );
         }
       }
     }
